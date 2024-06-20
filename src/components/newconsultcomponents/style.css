@@ -1,0 +1,982 @@
+.search-dropdown {
+  width: 100%;
+  height: 4rem;
+  border: none;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 0 15px;
+  /* box-shadow: 0 5px 10px #ddd; */
+  background-color: #eaf0ff;
+  display: flex;
+  align-items: center;
+}
+
+.page-grid{
+  display: grid;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0fr 3fr;
+  grid-template-areas:
+    'header header header'
+    'main main main';
+}
+.topbar {
+  grid-area: header;
+  flex-direction: row;
+  height: 10vh;
+  max-height: 5rem;
+  background: #E9F6FA;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  overflow: hidden;
+  }
+  .topbar .start-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1vw;    
+    transition: all .3s ease;
+  }
+  .topbar .end-div{
+    margin-right: 3vw;
+    margin-left:auto;
+    height: 10vh;
+    max-height: 5rem;
+    gap: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    font-size: 2vw;
+    font-weight: 600;
+  }
+  .topbar .menu {
+    display: flex;
+    background: #ccecee;
+    height: 10vh;
+    width: 5vw;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0px 12px 12px 0px;
+  }
+  .topbar .brandname{
+    height: 100%;
+    gap: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    font-size: 2vw;
+    font-weight: 600;
+}
+.main-content{
+  grid-area: main;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-self:flex-end;
+  justify-content:flex-start;
+  align-items: center;
+  overflow: hidden;
+  padding: 2vw;
+  background-color: #ffffff;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 1vw;
+}
+
+.cardbtn {
+  position:relative;
+  border: 0px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: white;
+  color: black;
+  font-size: 1.5vw;
+  font-weight: 400;
+  word-wrap: break-word;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.selectedbtn::before {
+  content: "";
+  left: -30px;
+  bottom: 0;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 15px 15px 0 #cde5e8;
+}
+.selectedbtn::after {
+  content: "";
+  right: -30px;
+  bottom: 0;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: -15px 15px 0 #cde5e8;
+}
+
+.cardbtn:hover{
+  background-color: #cde5e8;
+}
+
+.selectedbtn{
+  background-color: #cde5e8;
+  font-weight: 600;
+}
+
+.cardContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-items: center;
+  align-items: flex-start;
+  align-self: center;
+  border-radius: 20px;
+  background-color: #cde5e8;
+  width: 100%;
+  height: 100%;
+  padding: 1vw;
+  overflow: hidden;
+}
+
+
+/* for prxcard */
+.cardContainer .block1{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 1vw;
+  gap: 1vw;
+  width: 55%;
+  height: 100%;
+}
+
+.cardContainer .block1 .text-list{
+  display: flex;
+  border: 2px solid #b3b3b3;
+  background-color: #f7f9fc;
+  border-radius: 14px;
+  width: 100%;
+  height: 81%;
+}
+
+.cardContainer .block1 .adddoc{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1vh 0px;
+  border-radius: 5px;
+  background-color: #095d7e;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.cardContainer .block2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1vw;
+  width: 55%;
+  height: 100%;
+}
+
+.cardContainer .block2 .note-cointainer{
+  display: flex;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+}
+.cardContainer .block2 .note-cointainer .note{
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 1vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: black;
+  font-weight: 400;
+  font-size: 1.3vw;
+  width: 100%;
+  height: 60%;
+}
+.note::-webkit-scrollbar {
+  display: none;  
+}
+.cardContainer .block2 .buttons-cointainer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1vw;
+  width: 100%;
+  height: 20%;
+}
+
+/* for medicinecard */
+
+.cardContainer .textbox-cointainer{
+  display: flex;
+  flex-direction: row;
+  gap : 1vw;
+  padding: 1vw;
+  width: 100%;
+  height: 25%;
+}
+
+.cardContainer .medicine-cointainer{
+  padding: 1vw;
+  width: 100%;
+  height: 75%;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 4fr 0fr;
+  grid-template-areas:
+      'list timings'
+      'list buttons';
+}
+
+.cardContainer .medicine-cointainer .medlist{
+  grid-area: list;
+  display: flex;
+  justify-content:flex-start;
+  align-items: flex-start;
+  padding: 1vw;
+  gap: 1vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.medlist::-webkit-scrollbar {
+  display: none;  
+}
+
+.cardContainer .medicine-cointainer .medlist .meds{
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  overflow-wrap:break-word;
+  text-overflow: ellipsis;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.4vw;
+  font-weight: 400;
+  word-wrap: break-word;
+  max-width: 100%;
+  max-height: 20%;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 1vw;
+  max-width: 100%;
+  max-height: 20%;
+}
+
+.meds:hover{
+  background-color: #f7f9fc;
+}
+
+.cardContainer .medicine-cointainer .medlist .meds.selected{
+  position: relative;
+  border-radius: 10px;
+  padding: 10px 1vw;
+  max-width: 100%;
+  max-height: 20%;
+  background-color: #ffffff;
+  font-size: 1.4vw;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+
+.cardContainer .medicine-cointainer .medtimings{
+  grid-area: timings;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+  transition-duration: 0.5s;
+}
+.cardContainer .medicine-cointainer .medtimings .button-container button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 10%;
+  font-size: 1.2vw;
+  background-color: #f3f3f3;
+  border-radius: 6px;
+  overflow:hidden;
+  border: none;
+  transition-duration: 0.5s;
+}
+
+.cardContainer .medicine-cointainer .medtimings .button-container input{
+  height: 100%;
+  width: 15%;
+  padding-left: 1vw;
+  margin: 0;
+  border-radius: 10px;
+  overflow:hidden;
+  border: 1px solid #0a9396;
+  transition-duration: 0.5s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.cardContainer .medicine-cointainer .medtimings .button-container select{
+  height: 100%;
+  width: 20%;
+  padding-left: 1vw;
+  margin: 0;
+  font-size: 1.2vw;
+  font-weight: 600;
+  border-radius: 5px;
+  overflow:hidden;
+  background-color: #f3f3f3;
+  border: 1px solid #0a9396;
+  transition-duration: 0.5s;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+}
+
+.btnselected{
+  background-color: #0a9396 !important;
+  color: #FFFFFF;
+}
+.cardContainer .medicine-cointainer .medtimings .timebox{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: flex-start;
+  min-height: 100%;
+  height: auto;
+  width: 70%;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 0.5vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.cardContainer .medicine-cointainer .medtimings .timebox::-webkit-scrollbar{
+  display: none;
+}
+
+.cardContainer .medicine-cointainer .medtimings .blockbox{
+  display: none;
+}
+.cardContainer .medicine-cointainer .medtimings .timebox .timingblock{
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+  width: 100%;
+}
+.cardContainer .medicine-cointainer .medtimings .timebox .timingblock .textbox-area{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2vw;
+  height: 100%;
+  width: 40%;
+}
+.cardContainer .medicine-cointainer .medtimings .timebox .noteblock{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 40%;
+  width: 100%;
+}
+.cardContainer .medicine-cointainer .medtimings .timebox .noteblock .notetext{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border: none;
+  margin-right: 1.5vw;
+  background-color: #EAF0FF;
+  border-radius: 0.3125rem;
+}
+
+.medtimings textarea{
+  display: flex;
+  height: 75%;
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 0.3125rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.cardContainer .medicine-cointainer .medbuttons{
+  grid-area: buttons;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
+  gap: 1vw;
+  height: 100%;
+  width: 100%;
+}
+.consulttextbox{
+  position: relative;
+  display: flex;
+  width: 68%;
+  height: 100%;
+  margin: 0 1vw;
+  border-radius: 10px;
+  overflow: auto;
+  background-color: #FFFFFF;
+}
+
+.consulttextbox textarea{
+  padding:1vw;
+  border:none;
+  font-size: 1.5vw;
+  background-color:transparent;
+  width:93%;
+}
+.consulttextbox textarea::placeholder{
+  color: #005f73;
+}
+.consulttextbox textarea:focus {
+  outline: none !important;
+  border:none;
+}
+
+.buttondiv{
+  display: flex;
+  width: 100%;
+  height: 20%;
+  gap: 1vw;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* Instructioncard */
+
+.cardContainer .chatbox-cointainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  padding: 0vw 1vw 0px 1vw;
+  height: 88%;
+}
+
+.cardContainer .medbuttons{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
+  gap: 1vw;
+  height: 12%;
+  padding: 0vw 1vw 0px 0px;
+  width: 100%;
+}
+
+.cardContainer .chatbox-cointainer .chat-box {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  height: 85%;
+}
+.chat-box::-webkit-scrollbar {
+  display: none;  
+}
+.cardContainer .chatbox-cointainer .chats {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  border-radius: 0.625rem;
+  padding: 10px;
+  background: linear-gradient(90deg, #FFF 65.55%, rgba(255, 255, 255, 0.00) 100%);
+  transition: transform 0.4s ease;
+}
+
+.cardContainer .chatbox-cointainer .textbox {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  width: 100%;
+  height: 15%;
+  padding: 5px;
+}
+
+.cardContainer .chatbox-cointainer .textbox .voice{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 0.625rem;
+  border: none;
+  width: 8.75rem;
+  height: 100%;
+  font-size: 2vw;
+  transition-duration: 0.4s;
+}
+.cardContainer .chatbox-cointainer .textbox .voice:hover{
+  background-color: #74C0C3;
+}
+
+
+.css-1p3m7a8-multiValue {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 37px;
+  background-color: hsl(191.08deg 63.96% 46.58%);
+  border-radius: 6px;
+  margin: 1px;
+  box-sizing: border-box;
+}
+
+/* billing */
+
+.page-containt{
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding: 2vw;
+  overflow: hidden;
+}
+
+.page-containt .bcard{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.3125rem;
+  background-color: #cde5e8;
+}
+.page-containt .formarea{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 30%;
+  height: 100%;
+  padding: 2vw;
+}
+
+.page-containt .formarea h2{
+  color: #000;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.13213rem;
+  padding-bottom: 1vw;
+  letter-spacing: -0.0175rem;
+}
+
+.page-containt .formarea input , .page-containt .formarea select{
+  width: 100%;
+  height: 10%;
+  overflow: hidden;
+  padding: 1vw;
+  margin-left: 0;
+  border: none;
+  border-radius: 0.625rem;
+  background: var(--white, #FFF);
+}
+
+.page-containt .formarea input::placeholder{
+  font-size: 1.2vw;
+  font-weight: 400;
+  line-height: 18.11px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.page-containt .billarea{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 1vw;
+  width: 70%;
+  height: 100%;
+}
+.page-containt .billarea .bill{
+  display: flex;
+  width: 100%;
+  height: 80%;
+  padding: 1vw;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5vh;
+  border-radius: 0.625rem;
+  background: var(--WF-Base-100, #F7F9FC);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.page-containt .billarea .bill::-webkit-scrollbar {
+  display: none;
+}
+
+.page-containt .billarea .bill .left{
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: auto;
+}
+
+.page-containt .billarea .bill .right{
+  display: flex;
+  width: 45%;
+  height: auto;
+}
+
+.page-containt .billarea .bill .right table{
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #f7f9fc;
+}
+
+.page-containt .billarea .bill .right table thead tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.page-containt .billarea .bill .right table thead tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.page-containt .billarea .bill .right table th {
+  border: 1px solid #ddd;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 1.3vw;
+  font-weight: 500;
+}
+.page-containt .billarea .bill .right table td{
+  border: 1px solid #ddd;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 1.1vw;
+  text-align: center;
+}
+.page-containt .billarea .bill .right table td{
+  color:#003366;
+}
+
+.page-containt .billarea .bill .right table tr:nth-child(even){background-color: #f2f2f2;}
+
+.page-containt .billarea .bill .right tabletr:hover {background-color: #ddd;}
+
+.page-containt .billarea .bill .right table th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(100, 248, 167);
+  color: black;
+  text-align: center;
+}
+
+.page-containt .billarea .billbuttonarea{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+  gap: 1vw;
+  padding: 1vw;
+  width: 100%;
+  height: 20%;
+}
+
+#checkboxInput {
+  display: none;
+}
+.bookmark {
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  cursor: pointer;
+  background-color: rgba(0, 128, 128, 0.733);
+  width: 4vw;
+  height: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.svgIcon path {
+  stroke-dasharray: 200 0;
+  stroke-dashoffset: 0;
+  stroke: white;
+  fill: #dddddd00;
+  transition-delay: 0s;
+  transition-duration: 0.5s;
+}
+
+#checkboxInput:checked ~ .svgIcon path {
+  fill: #1aff1a;
+  stroke: #006600;
+  animation: bookmark 0.5s linear;
+  transition-delay: 0.5s;
+}
+
+@keyframes bookmark {
+  0% {
+    stroke-dasharray: 0 200;
+    stroke-dashoffset: 80;
+  }
+  100% {
+    stroke-dasharray: 200 0;
+  }
+}
+
+
+.bookmarkBtn {
+  width: 100%;
+  height: 7vh;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.349);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.IconContainer {
+  width: 44%;
+  height: 6vh;
+  background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(205,229,232,1) 100%);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(7, 7, 7);
+  transition-duration: 0.3s;
+  font-size: 1.3vw;
+  font-weight: 500;
+}
+
+.bookmarkBtn:hover .IconContainer {
+  width: 100%;
+  transition-duration: 0.3s;
+}
+
+.bookmarkBtn:hover .text {
+  transform: translate(10px);
+  width: 0;
+  font-size: 0;
+  transition-duration: 0.3s;
+}
+
+.bookmarkBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.3s;
+}
+
+
+.modalContainer {
+  grid-area: timings;
+  position: relative;
+  width: 80%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw;
+  transition-duration: 0.5s;
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 1vh;
+}
+
+.titleCloseBtn {
+  position: absolute;
+  right: 1vw;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 2vw;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+  text-align: center;
+  padding: 2vw;
+}
+
+.modalContainer .foot {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .foot button {
+  width: 15vw;
+  height: 6vh;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.5vw;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: crimson;
+}
+
+.modalContainer input,select{
+  width: 100%;
+  height: 50%;
+  margin: 8px 0;
+  padding-left: 1vw;
+  box-sizing: border-box;
+  border: 1px solid #6bacaf;
+  border-radius: 5px;
+}
+
+.findbox{
+  display: flex;
+  flex-direction: row;
+  padding-top: 5vh;
+  gap: 1vw;
+  width: 100%;
+  height: 80%;
+}
+
+.NavOptions{
+  cursor:pointer;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  font-size:1vw;
+  color: #095d7e;
+}
+
+.Expanded{
+  position: absolute;
+  width: 70%;
+  height: 80vh;
+  left: 15%;
+  top: 15%;
+  border-radius: 1rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:flex-start;
+  padding: 2vh 1vw;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: #e9f6fa 0px 8px 240px, rgba(17, 17, 26, 0.5) 0px 16px 240px, #e9f6fa 0px 24px 240px;
+}
+
+.Expanded .card-title{
+  display: flex;
+  width: 100%;
+  height: 10%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.Expanded .buttons{
+  display: flex;
+  width: 10%;
+  height: 100%;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.Expanded .btn {
+  font-size: 1.2vw;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 2px solid #095D7E;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #095D7E;
+}
+
+.Expanded .card-title h4{
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.8vw;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}

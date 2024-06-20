@@ -1,0 +1,690 @@
+
+.DocProfile-page-container {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr;
+    grid-template-areas:
+      'header'
+      'main1';
+  }
+
+.DocProfile-page-container  .MainContent{
+    grid-area: main1;
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+    overflow: hidden;
+}
+
+.DocProfile-page-container  .MainContent .layout{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-right: 1vw;
+    gap: 1vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.layout::-webkit-scrollbar {
+    width: 20px;  
+  }
+.layout::-webkit-scrollbar-thumb {
+    background-color: #74c0c3;
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    border-radius: 100px;
+    border: 3px solid #cde5e8;
+  }
+.layout::-webkit-scrollbar-track {
+    background-color: #cde5e8;
+    border-radius: 100px;
+  }
+
+.DocProfile-page-container  .MainContent .layout .firstcolumn{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    width: 100%;
+    min-height: 20%;
+    overflow: hidden;
+}
+
+.DocProfile-page-container  .MainContent .layout .secondcolumn{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    width: 100%;
+    min-height: 75%;
+    overflow: hidden;
+}
+
+.DocProfile-page-container  .MainContent .layout .secondcolumn .firstrow{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 45%;
+    overflow: hidden;
+}
+
+.DocProfile-page-container  .MainContent .layout .secondcolumn .secondrow{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 55%;
+    overflow: hidden;
+}
+
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 1vw;
+    background-color: #cde5e8;
+    cursor: pointer;
+}
+
+.cards .profile-pic{
+  display: flex;
+  justify-content: center;
+  width: 24%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.cards .profile-pic img{
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.heading{
+  font-size: 1.5vw;
+  font-weight: 400;
+  line-height: 22.19px;
+  letter-spacing: -0.02em;
+}
+
+.sub-heading{
+  font-size: 1vw;
+  font-weight: 400;
+  line-height: 22.19px;
+  letter-spacing: -0.01em;
+}
+
+.cards .head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  overflow: hidden;
+  padding: 0;
+}
+
+.cards .head select{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  overflow: hidden;
+  padding-left: 0.5vw;
+  background-color: transparent;
+  border-radius: 6px;
+  border: #383c44 1px solid;
+}
+
+.cards .graph-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 88%;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.Expanded .card-title button{
+  font-size: 1.8vw;
+  background-color: transparent;
+  border: none;
+}
+.Expanded .card-title button:hover {
+  color: #be1e1e;
+}
+
+.Expanded .card-containt{
+  display: flex;
+  flex-direction: column;
+  /* gap: 1vh; */
+  width: 100%;
+  height: 90%;
+}
+
+.toggle-button-cover {
+  display: table-cell;
+  position: relative;
+  width: 10%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.button-cover {
+  height: 100%;
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 0 10px 20px -8px #c5d6d6;
+  border-radius: 4px;
+}
+
+.button-cover:before {
+  counter-increment: button-counter;
+  content: counter(button-counter);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #d7e3e3;
+  font-size: 1vw;
+  line-height: 1;
+  padding: 5px;
+}
+
+.button-cover,
+.knobs,
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.toggle-button-cover .button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* margin: -20px auto 0 auto; */
+  overflow: hidden;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  margin: 0;
+  background-color: #fcebeb;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+  height: 100%;
+}
+
+#button-3 .knobs:before {
+  content: "Off";
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 2vw;
+  height: 2vw;
+  color: #fff;
+  font-size: 1vw;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  background-color: #b6413b;
+  border-radius: 50%;
+  transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+}
+
+#button-3 .checkbox:active + .knobs:before {
+  width: 40%;
+  border-radius: 100px;
+}
+
+#button-3 .checkbox:checked:active + .knobs:before {
+  margin-left: -26px;
+}
+
+#button-3 .checkbox:checked + .knobs:before {
+  content: "ON";
+  margin: 0;
+  left: 63%;
+  width: 2vw;
+  height: 2vw;
+  background-color: #1c739b;
+}
+
+#button-3 .checkbox:checked ~ .layer {
+  background-color: #ebf7fc;
+}
+
+.Expanded .card-containt .appointment{
+  width : 100%;
+  height : 100%;
+  overflow-y:auto;
+}
+
+.Expanded .appointment::-webkit-scrollbar{
+  display: none;
+}
+
+.Expanded .card-containt .first-column{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 15%;
+  overflow: hidden;
+}
+
+.Expanded .card-containt .slot-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 5vh;
+  overflow: hidden;
+}
+
+.Expanded .card-containt .slot-row input{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  border-radius: 10px;
+  padding-left: 1vw;
+  border: #095D7E solid 1px;
+  background-color: #ffffff;
+}
+
+.Expanded .card-containt .btn1{
+  height: 5vh;
+  width: 15%;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #095D7E;
+  border: none;
+}
+
+.Expanded .card-containt .slot-row button{
+  height: 100%;
+  width: 15%;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #095D7E;
+  border: none;
+}
+
+
+.Expanded .card-containt .first-column ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1vh;
+  height: 100%;
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.Expanded .card-containt .first-column ul li{
+  width: 100%;
+  display: flex;
+  font-size: 1.2vw;
+  font-weight: 500;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Expanded .card-containt .first-column ul li input{
+  width: 40%;
+  font-size: 1.2vw;
+  border-radius: 10px;
+  border: 1px solid #095d7e;
+}
+
+.Expanded .card-containt .first-column .button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 1vh;
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Expanded .card-containt .cardbtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 100%;
+  font-size: 1.2vw;
+  font-weight: 500;
+  background-color: #e7e5e6;
+}
+
+.Expanded .card-containt .first-column .selected , .Expanded .card-containt .first-column .cardbtn:hover{
+  color: #ffffff;
+  background-color: #095d7e;
+}
+
+.Expanded .card-containt .last-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: center;
+  width: 90%;
+  height: 54%;
+  margin-top: 1vh;
+  padding: 1vw;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color:#CDE5E8;
+}
+
+.Expanded .card-containt .last-column .Session-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 65%;
+  overflow: hidden;
+}
+
+.Expanded .card-containt .last-column .Session-container .row{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.Expanded .card-containt .last-column .button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  width: 60%;
+  font-size: 1.2vw;
+  font-weight: 500;
+  border-radius: 5px;
+  overflow: hidden;
+  color: #000;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.Expanded .card-containt .last-column .leave-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 80%;
+  width: 90%;
+  border-radius: 15px;
+  padding: 0.5vw;
+  gap: 0.5vh;
+  overflow: hidden;
+  color: #000;
+  background-color: #ffffff;
+}
+
+.Expanded .card-containt .last-column .leave-container .circle{
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background-color: #5ba6ac;
+}
+
+.Expanded .card-containt .last-column .leave-container h5{
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
+}
+
+.Expanded .card-containt .last-column .selected, .Expanded .card-containt .last-column .button:hover{
+  color: #ffffff;
+  background-color: #095d7e;
+}
+
+.Expanded .card-containt .last-column .Session-container .row .timeing{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1.2vw;
+  font-weight: 500;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.Expanded .card-containt .last-column .Session-container .row .timeing ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 1vw;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Expanded .card-containt .last-column .Session-container .row .timeing ul li{
+  width: 100%;
+  display: flex;
+  font-size: 1.2vw;
+  font-weight: 500;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.row .timeing input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2vw;
+  font-weight: 500;
+  width: 30%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #095d7e;
+}
+
+
+.Expanded .card-containt .last-column .service-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 55%;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 0.5vw 1vw;
+  background-color: #CDE5E8;
+}
+
+.Expanded .card-containt .last-column .form-cointainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 70%;
+  width: 45%;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 0.5vw 1vw;
+  background-color: #f2f2f2;
+}
+
+.Expanded .card-containt .last-column .form-cointainer .input-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 35%;
+  width: 100%;
+  overflow: hidden;
+  padding: 1vw;
+  background-color: #f2f2f2;
+}
+
+.input-container input{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  border-radius: 10px;
+  padding-left: 1vw;
+  border: #095D7E solid 1px;
+  background-color: #ffffff;
+}
+
+.Expanded .card-containt .last-column .form-cointainer button{
+  height: 20%;
+  width: 50%;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #095D7E;
+  border: none;
+}
+
+.Expanded .card-containt .last-column .service-container ul{
+  height: 80%;
+  width: 100%;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.service-container ul::-webkit-scrollbar {
+  display: none;
+}
+
+.Expanded .card-containt .last-column .service-container ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  overflow: hidden;
+  color: #095D7E;
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+
+.Expanded .card-containt .button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+
+.Expanded .card-containt button{
+  height: 60%;
+  width: 50%;
+  border: none;
+  border-radius: 15px;
+  background-color: #095D7E;
+  color: #ffffff;
+  font-size: 1.2vw
+}
+
+.add{
+  display: flex;
+  justify-content:center;
+  align-items:normal;
+  color: #ffffff;
+  font-size: 2vw;
+  font-weight:1000;
+  width: 3.5vw;
+  height: 3.5vw;
+  border-radius: 50%;
+  background-color: #095D7E;
+  cursor: pointer;
+}
+.Expanded .searchbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  height: 10%;
+  border-radius: 15px;
+  padding-left: 1vw;
+  background-color: #e7e5e6;
+}
+
+.Expanded .card-containt .savedpatients::-webkit-scrollbar{
+display: none;
+}
+
+.Expanded .card-containt .savedpatients{
+  padding:1vw;
+  height:90%;
+  overflow: auto;
+}
+
+.Expanded .card-containt .savedpatients li{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 14%;
+  border-bottom: 1px solid #ccc;
+}
